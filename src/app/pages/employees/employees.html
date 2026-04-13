@@ -1,0 +1,51 @@
+<div class="container mt-4">
+    <h2>Employees</h2>
+
+    <!-- 🔍 SEARCH BAR -->
+    <div class="d-flex mb-3">
+        <input
+        class="form-control me-2"
+        [(ngModel)]="searchTerm"
+        placeholder="Search by department or designation"
+        >
+        <button class="btn btn-primary" (click)="search()">Search</button>
+        <button class="btn btn-secondary ms-2" (click)="load()">Reset</button>
+    </div>
+
+    <button class="btn btn-success" routerLink="/add">Add Employee</button>
+    <button class="btn btn-danger float-end" (click)="logout()">Logout</button>
+
+    <table class="table mt-3">
+    <thead>
+        <tr>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Designation</th>
+        <th>Department</th>
+        <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let e of employees">
+        <td>
+            <img *ngIf="e.employee_photo"
+                [src]="e.employee_photo"
+                width="50"
+                height="50"
+                style="border-radius: 50%;">
+        </td>
+
+        <td>{{ e.first_name }} {{ e.last_name }}</td>
+        <td>{{ e.designation }}</td>
+        <td>{{ e.department }}</td>
+
+        <td>
+            <button class="btn btn-info btn-sm" [routerLink]="['/view', e._id]">View</button>
+            <button class="btn btn-warning btn-sm" [routerLink]="['/update', e._id]">Update</button>
+            <button class="btn btn-danger btn-sm" (click)="delete(e._id)">Delete</button>
+        </td>
+        </tr>
+    </tbody>
+    </table>
+</div>

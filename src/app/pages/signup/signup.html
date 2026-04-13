@@ -1,0 +1,48 @@
+<div class="container mt-5" style="max-width: 400px;">
+    <h2 class="text-center mb-4">Signup</h2>
+
+    <form [formGroup]="form" (ngSubmit)="signup()">
+
+        <!-- Username -->
+        <input
+        class="form-control mb-2"
+        formControlName="username"
+        placeholder="Username"
+        />
+        <div class="text-danger mb-2" *ngIf="form.controls.username.touched && form.controls.username.invalid">
+        Username is required
+        </div>
+
+        <!-- Email -->
+        <input
+        class="form-control mb-2"
+        formControlName="email"
+        placeholder="Email"
+        />
+        <div class="text-danger mb-2" *ngIf="form.controls.email.touched && form.controls.email.invalid">
+        Enter a valid email
+        </div>
+
+        <!-- Password -->
+        <input
+        type="password"
+        class="form-control mb-2"
+        formControlName="password"
+        placeholder="Password"
+        />
+        <div class="text-danger mb-2" *ngIf="form.controls.password.touched && form.controls.password.invalid">
+        Password must be at least 6 characters
+        </div>
+
+        <!-- Submit -->
+        <button class="btn btn-success w-100" [disabled]="form.invalid">
+        Signup
+        </button>
+
+    </form>
+
+    <!-- Login link -->
+    <div class="text-center mt-3">
+        <a routerLink="/">Already have an account? Login</a>
+    </div>
+</div>

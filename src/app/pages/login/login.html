@@ -1,0 +1,40 @@
+<div class="container mt-5" style="max-width: 400px;">
+    <h2 class="text-center mb-4">Login</h2>
+
+    <form [formGroup]="form" (ngSubmit)="login()">
+
+        <!-- Username -->
+        <input
+        class="form-control mb-2"
+        formControlName="username"
+        placeholder="Username"
+        />
+        <div class="text-danger mb-2"
+            *ngIf="form.controls.username.touched && form.controls.username.invalid">
+        Username is required
+        </div>
+
+        <!-- Password -->
+        <input
+        type="password"
+        class="form-control mb-2"
+        formControlName="password"
+        placeholder="Password"
+        />
+        <div class="text-danger mb-2"
+            *ngIf="form.controls.password.touched && form.controls.password.invalid">
+        Password is required
+        </div>
+
+        <!-- Button -->
+        <button class="btn btn-primary w-100" [disabled]="form.invalid">
+        Login
+        </button>
+
+    </form>
+
+    <!-- Signup link -->
+    <div class="text-center mt-3">
+        <a routerLink="/signup">Create an account</a>
+    </div>
+</div>

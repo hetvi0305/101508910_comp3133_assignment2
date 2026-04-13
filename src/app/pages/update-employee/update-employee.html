@@ -1,0 +1,34 @@
+<pre>{{ employee | json }}</pre>
+<div class="container mt-4" >
+    <h2 class="mb-4">Update Employee</h2>
+
+    <div class="text-center mb-4">
+        <img
+        *ngIf="employee.employee_photo"
+        [src]="employee.employee_photo"
+        width="100"
+        height="100"
+        style="border-radius: 50%; object-fit: cover; border: 2px solid #ccc;"
+        />
+    </div>
+
+    <div class="card p-3 mb-3 shadow-sm">
+        <p><strong>Name:</strong> {{ employee.first_name }} {{ employee.last_name }}</p>
+        <p><strong>Current Designation:</strong> {{ employee.designation }}</p>
+        <p><strong>Current Salary:</strong> {{ employee.salary }}</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="update()">
+
+        <label class="form-label">Designation</label>
+        <input class="form-control mb-2"
+            formControlName="designation">
+
+        <label class="form-label">Salary</label>
+        <input class="form-control mb-3"
+            type="number"
+            formControlName="salary">
+
+        <button class="btn btn-warning w-100">Update</button>
+    </form>
+</div>

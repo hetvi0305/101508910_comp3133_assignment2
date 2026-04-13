@@ -1,0 +1,22 @@
+<div class="container mt-4" *ngIf="employee">
+    <h2 class="mb-4">Employee Details</h2>
+
+    <div class="text-center mb-4">
+        <img
+        *ngIf="employee.employee_photo"
+        [src]="employee.employee_photo"
+        width="150"
+        height="150"
+        style="border-radius: 50%; object-fit: cover; border: 2px solid #ccc;"
+        />
+    </div>
+
+    <div class="card p-3 shadow-sm">
+        <p><strong>Name:</strong> {{ employee.first_name }} {{ employee.last_name }}</p>
+        <p><strong>Email:</strong> {{ employee.email }}</p>
+        <p><strong>Gender:</strong> {{ employee.gender }}</p>
+        <p><strong>Designation:</strong> {{ employee.designation }}</p>
+        <p><strong>Department:</strong> {{ employee.department }}</p>
+        <p><strong>Salary:</strong> {{ employee.salary }}</p>
+    </div>
+</div>
